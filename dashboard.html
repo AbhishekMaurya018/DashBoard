@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Visualization Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .chart-container {
+      width: 400px;
+      height: 300px;
+      margin: 20px;
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="chart-container">
+    <canvas id="lineChart"></canvas>
+  </div>
+
+  <div class="chart-container">
+    <canvas id="barChart"></canvas>
+  </div>
+
+  <div class="chart-container">
+    <canvas id="pieChart"></canvas>
+  </div>
+
+  <script>
+    // Line Chart
+    const lineCtx = document.getElementById('lineChart').getContext('2d');
+    new Chart(lineCtx, {
+      type: 'line',
+      data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+        datasets: [{
+          label: 'Sales',
+          data: [100, 120, 150, 130, 160, 140],
+          borderColor: 'blue',
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+
+    // Bar Chart
+    const barCtx = document.getElementById('barChart').getContext('2d');
+    new Chart(barCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Product 1', 'Product 2', 'Product 3', 'Product 4', 'Product 5'],
+        datasets: [{
+          label: 'Sales',
+          data: [50, 80, 120, 70, 90],
+          backgroundColor: 'green'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+
+    // Pie Chart
+    const pieCtx = document.getElementById('pieChart').getContext('2d');
+    new Chart(pieCtx, {
+      type: 'pie',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple'],
+        datasets: [{
+          data: [10, 20, 30, 15, 25],
+          backgroundColor: ['red', 'blue', 'yellow', 'green', 'purple']
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+  </script>
+</body>
+</html>
